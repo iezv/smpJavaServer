@@ -153,7 +153,7 @@ public class Contact {
 			String appart = (String) data.get( APPARTMENT );
 			address = new Address(postcode==null?0:postcode, city==null?"null":city, 
 					street==null?"null":street, bld==null?"null":bld, appart==null?"null":appart);
-			String prime = (String) data.get( PRIMEPHONE );
+			String prime = (String) data.get( PRIME );
 			String  workphone = (String) data.get( WORKPHONE );
 			String  mobile = (String) data.get( MOBILE );
 			String  fax = (String) data.get( FAX );

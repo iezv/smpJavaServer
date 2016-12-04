@@ -18,20 +18,31 @@ public class ContactOrm {
 	}
 	
 	@Transactional
-	public boolean updateAddress(int id, Address address){
-		Contact contact = em.find(Contact.class, id);
-		if (contact==null)
-			return false;
-		contact.setAddress(address);
-		return true;
-	}
-	
-	@Transactional
 	public Contact removeContact (int id){
 		Contact res = em.find(Contact.class, id);
-		if (em!=null) em.remove(res);
+		if (res!=null) em.remove(res);
 		return res;
 	}
-	
+	@Transactional
+	public boolean updateContact(int id, Contact contact) {
+		Contact res = em.find(Contact.class, id);
+		if (res==null) 
+			return false;
+		res.setFirstname(contact.getFirstname());
+		res.setLastname(contact.getLastname());
+		res.setCompany(contact.getCompany());
+		res.setComment(contact.getComment());
+		res.setPosition(contact.getPosition());
+		res.setAddress(contact.getAddress());
+		res.setEmails(contact.getEmails());
+		res.setPhones(contact.getPhones());
+		res.setSkype(contact.getSkype());
+		return true;
+	}
+
+	public Contact getContact(int id) {
+		return em.find(Contact.class, id);
+	}
+
 	
 }
